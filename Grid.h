@@ -12,11 +12,18 @@ public:
   Grid(int, int, float);
   ~Grid();
 
+  // Copy constructor
+  Grid(const Grid&);
+  // Assignment operator
+  Grid& operator = (const Grid&);
+
   void display() const;
   bool isValidCoord(int, int) const;
   // Getter and setter for matrix data
   char operator ()(int r, int c) const { return data[r][c]; }
   char& operator ()(int r, int c) { return data[r][c]; }
+
+  char get(int r, int c) const { return data[r][c]; }
   // Getters for dimensions
   int getRows() const { return numRows; }
   int getCols() const { return numCols; }

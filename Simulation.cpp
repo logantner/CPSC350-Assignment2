@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <unistd.h>
 
 #include "Simulation.h"
 #include "Grid.h"
@@ -8,8 +9,6 @@
 #include "ClassicBoundary.h"
 #include "DoughnutBoundary.h"
 #include "MirrorBoundary.h"
-
-#include "windows.h" // For Sleep function. CHANGE BEFORE SUBMITTING!
 
 using std::cout;
 using std::cin;
@@ -180,10 +179,10 @@ void Simulation::pause() const {
   // Executes the user-specified pause (either awaiting a prompt from the
   // user, or a fixed time length)
   if (waitForPrompt) {
-    std::system("pause");
+    std::getchar();
   }
   else {
-    Sleep((int)(1000*waitTime));
+    usleep((int)(1000000*waitTime));
   }
 }
 

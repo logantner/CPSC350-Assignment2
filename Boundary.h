@@ -6,6 +6,7 @@
 class Boundary {
 public:
   Boundary(const Grid&);
+  virtual ~Boundary() {}
   virtual char operator ()(int,int) const = 0;
   void setGrid(const Grid&);
   void display();

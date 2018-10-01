@@ -8,6 +8,7 @@
 class Simulation {
 public:
   Simulation() : generation(0) { }
+  ~Simulation() {delete boundary;}
   void setSpecs();
   void start();
 
